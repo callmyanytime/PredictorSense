@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - GreenEdge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in-scale {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.6s ease;
+    }
+    .fade-in-scale.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .slide-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+    .slide-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .message-box {
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s ease;
+    }
+
+    .message-box.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body class="bg-emerald-100 min-h-screen p-6 flex flex-col items-center justify-center">
+
+  <!-- Header Section -->
+  <div id="homeContent" class="fade-in-scale bg-white p-10 rounded-2xl shadow-xl max-w-xl w-full text-center mb-10">
+    <h1 class="text-4xl font-bold text-emerald-600 mb-4">Welcome Home 🌿</h1>
+    <p class="text-gray-700 text-lg mb-6">
+      You've arrived at the home page of your beautiful green website. Smooth, animated, and ready to grow!
+    </p>
+    <a href="index.html" class="bg-emerald-500 text-white py-2 px-5 rounded-xl hover:bg-emerald-600 transition duration-300">
+      Back to Main
+    </a>
+  </div>
+
+  <!-- Predictor Section -->
+  <div id="predictor" class="slide-up bg-white p-8 rounded-2xl shadow-xl max-w-xl w-full text-center">
+    <h2 class="text-3xl font-bold text-emerald-600 mb-3">🔮 Predictor</h2>
+    <p class="text-gray-700 text-base mb-5 leading-relaxed">
+      استخدم أداتنا الذكية للتنبؤ بالمستقبل بناءً على بياناتك. <br />
+      وصف: هذه الأداة تساعدك على اتخاذ قرارات أفضل باستخدام الذكاء الاصطناعي والتحليل البياني.
+    </p>
+    <button onclick="startPredictor()" class="bg-emerald-500 text-white py-2 px-6 rounded-xl hover:bg-emerald-600 transition duration-300">
+      Start Prediction
+    </button>
+  </div>
+
+  <!-- Message Box -->
+  <div id="messageBox" class="message-box mt-6 bg-emerald-200 text-emerald-800 text-center px-6 py-4 rounded-xl shadow-md font-semibold hidden">
+    🔄 Starting Predictor...
+  </div>
+
+  <!-- ✅ Online Audio Sound Effect -->
+  <audio id="startSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_70e05bada1.mp3?filename=click-124467.mp3" preload="auto"></audio>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("homeContent").classList.add("show");
+      setTimeout(() => {
+        document.getElementById("predictor").classList.add("show");
+      }, 500);
+    });
+
+    function startPredictor() {
+      const sound = document.getElementById("startSound");
+      const box = document.getElementById("messageBox");
+
+      // Play sound
+      sound.play();
+
+      // Show message
+      box.classList.remove("hidden");
+      box.classList.add("show");
+
+      // Redirect after 3 sec
+      setTimeout(() => {
+        window.location.href = "predictor.html";
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>

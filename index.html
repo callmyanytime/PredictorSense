@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Custom Website</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .corner-box::before,
+    .corner-box::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #10b981; /* emerald-500 */
+    }
+    .corner-box::before {
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none;
+    }
+    .corner-box::after {
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none;
+    }
+
+    .animated-button {
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .animated-button::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0;
+      top: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.1);
+      transition: height 0.3s ease;
+      z-index: 1;
+    }
+
+    .animated-button:hover::before {
+      height: 100%;
+    }
+
+    .animated-button span {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body class="bg-emerald-100 flex items-center justify-center min-h-screen">
+
+  <div class="corner-box relative bg-white p-10 rounded-2xl shadow-xl max-w-md text-center">
+    <h1 class="text-3xl font-bold text-emerald-600 mb-4">GreenEdge</h1>
+    <p class="text-gray-600 mb-6">
+      Welcome to a custom-designed green-themed website with animated effects and stylish corners.
+    </p>
+
+    <!-- 👇 Animated Button linking to home.html -->
+    <a href="home.html" class="animated-button bg-emerald-500 text-white font-semibold py-3 px-6 rounded-xl hover:bg-emerald-600 transition duration-300">
+      <span>Get Started</span>
+    </a>
+  </div>
+
+</body>
+</html>
